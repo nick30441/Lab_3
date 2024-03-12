@@ -6,7 +6,7 @@ module tb ();
    logic       clk_en;      
    
    integer     handle3;  
-   integer 	 desc3;    
+   integer 	desc3;    
 
    // instantiate device under test   
    clk_div dut (clk, rst, clk_en);
