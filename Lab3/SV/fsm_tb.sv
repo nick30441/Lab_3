@@ -39,8 +39,8 @@ module stimulus ();
      begin
      
      //right test       nano seconds  
-	#0   reset = 1'b1; //0
-	#50  reset = 1'b0; //10
+     #0   reset = 1'b1; //0
+     #50  reset = 1'b0; //10
      //left test
      #100 reset = 1'b1; //20
      #150 reset = 1'b0; //30
@@ -49,13 +49,13 @@ module stimulus ();
      #250 reset = 1'b0; //50
 
      //right inputs
-	#0   right = 1'b0; //0
-	#25  right = 1'b1; //5
-	#25  right = 1'b0; //5
+     #0   right = 1'b0; //0
+     #25  right = 1'b1; //5
+     #25  right = 1'b0; //5
      //left inputs
      #100  left = 1'b0; //20
-	#125  left = 1'b1; //25
-	#125  left = 1'b0; //25
+     #125  left = 1'b1; //25
+     #125  left = 1'b0; //25
      //left and right inputs
      #200  left = 1'b0; //40
      #200 right = 1'b0; //40
