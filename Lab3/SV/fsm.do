@@ -42,7 +42,8 @@ add wave -noupdate -divider -height 32 "FSM"
 add wave -hex /stimulus/dut/y
 add wave -hex /stimulus/dut/reset
 add wave -hex /stimulus/dut/clk
-add wave -hex /stimulus/dut/a
+add wave -hex /stimulus/dut/left 
+add wave -hex /stimulus/dut/right
 add wave -hex /stimulus/dut/state
 add wave -hex /stimulus/dut/nextstate
 
@@ -63,6 +64,6 @@ configure wave -rowmargin 4
 configure wave -childrowmargin 2
 
 -- Run the Simulation
-run 111 ns
+run 250 ns
 
 

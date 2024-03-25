@@ -5,7 +5,7 @@ module stimulus ();
    logic  right;
    logic  left;
    logic  reset;
-   logic  y;
+   logic  [5:0] y;
    
    integer handle3;
    integer desc3;
@@ -25,13 +25,13 @@ module stimulus ();
 	// Gives output file name
 	handle3 = $fopen("fsm.out");
 	// Tells when to finish simulation
-	#500 $finish;		
+	#600 $finish;		
      end
 
    always 
      begin
 	desc3 = handle3;
-	#5 $fdisplay(desc3, "%b || %b %b || %b", 
+	#10 $fdisplay(desc3, "%b || %b %b || %b", 
 		     reset, right, left, y);
      end   
    
@@ -39,32 +39,33 @@ module stimulus ();
      begin
      
      //right test       nano seconds  
-     #0   reset = 1'b1; //0
-     #50  reset = 1'b0; //10
-     //left test
-     #100 reset = 1'b1; //20
-     #150 reset = 1'b0; //30
-     //left and right test
-     #200 reset = 1'b1; //40
-     #250 reset = 1'b0; //50
+     #0  reset = 1'b1;  //start line
+     #5  reset = 1'b0; //section 1 line 
 
-     //right inputs
-     #0   right = 1'b0; //0
-     #25  right = 1'b1; //5
-     #25  right = 1'b0; //5
-     //left inputs
-     #100  left = 1'b0; //20
-     #125  left = 1'b1; //25
-     #125  left = 1'b0; //25
+     //right inputs 
+     #0  right = 1'b0; //section 1 line 
+     #0  left = 1'b0;  //section 1 line 
+     #5  right = 1'b1; //section 2 line 
+     #0  left = 1'b0;  //section 2 line 
+     #10 right = 1'b0; //section 3 line 
+     #0  left = 1'b0;  //section 3 line 
+     
+     //left inputs 
+     #30  left = 1'b0; //section 4 line 
+     #0  right = 1'b0;//section 4 line 
+     #5  left = 1'b1; //section 5 line 
+     #0  right = 1'b0;//section 5 line 
+     #10 left = 1'b0; //section 6 line 
+     #0 right = 1'b0; //section 6 line
+
      //left and right inputs
-     #200  left = 1'b0; //40
-     #200 right = 1'b0; //40
-     #225  left = 1'b1; //45
-     #225 right = 1'b1; //45
-     #225  left = 1'b0; //45
-     #225 right = 1'b0; //45
+     #30 left = 1'b0;  //section 9 line
+     #0 right = 1'b0; 
+     #5 left = 1'b1;  //section 10 line
+     #0 right = 1'b1; 
+     #10 left = 1'b0;  //section 11 line
+     #0 right = 1'b0; 
 
      end
 
 endmodule // FSM_tb
-
