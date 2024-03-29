@@ -1,0 +1,38 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
+| Date         : Fri Mar 29 12:15:40 2024
+| Host         : CEAT-ENDV350-03 running 64-bit major release  (build 9200)
+| Command      : report_timing -file route_report_timing_0.rpt -rpx route_report_timing_0.rpx
+| Design       : top_demo
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 btn[0]
+                            (input port)
+  Destination:            led[7]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.701ns  (logic 5.255ns (60.394%)  route 3.446ns (39.606%))
+  Logic Levels:           2  (IBUF=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    U12                                               0.000     0.000 r  btn[0] (IN)
+                         net (fo=0)                   0.000     0.000    btn[0]
+    U12                  IBUF (Prop_ibuf_I_O)         1.617     1.617 r  btn_IBUF[0]_inst/O
+                         net (fo=36, routed)          3.446     5.063    led_OBUF[7]
+    V8                   OBUF (Prop_obuf_I_O)         3.638     8.701 r  led_OBUF[7]_inst/O
+                         net (fo=0)                   0.000     8.701    led[7]
+    V8                                                                r  led[7] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

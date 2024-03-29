@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/jstine/vivado/Lab1/Lab1.runs/impl_1/top_demo.tcl"
+  variable script "C:/Users/nicnova/Lab_3/Lab3/Vivado/Lab1/Lab1.runs/impl_1/top_demo.tcl"
   variable category "vivado_impl"
 }
 
@@ -125,10 +125,12 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_param checkpoint.writeSynthRtdsInDcp 1
   set_param chipscope.maxJobs 4
-  set_param xicom.use_bs_reader 1
+  set_param synth.incrementalSynthesisCache C:/Users/nicnova/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-12624-CEAT-ENDV350-03/incrSyn
+  set_param runs.launchOptions { -jobs 8  }
   open_checkpoint top_demo_routed.dcp
-  set_property webtalk.parent_dir /home/jstine/vivado/Lab1/Lab1.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/nicnova/Lab_3/Lab3/Vivado/Lab1/Lab1.cache/wt [current_project]
 set_property TOP top_demo [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
